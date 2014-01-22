@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--
+		使用工具前请先确认： ==============1.文件是否已经存在==============
+		==============2.方法是否已经存在============== ==============3.DTO是否已经存在
+		============== ==============4.使用前请先提交、更新代码======
+	-->
+<root>
+	<!--基础信息：用户名称，ERP项目路径，模块路径，spring配置文件名:spring-SDLGMSS.xml -->
+	<basic>
+		<author>卿怡</author>
+		<projectroot>D:\workspace\SDLGLDP\</projectroot>
+		<modularroot>com.origin.mss</modularroot>
+		<junitroot>com.origin.mss.junit.bo</junitroot>
+		<springname></springname>
+	</basic>
+	<!--业务逻辑：生成WS,FACTORY,BO,TEST,配置 -->
+	<business>
+		<!--
+			示例：<file name="ValueCode" note="值集"
+			fileType="WS,FACTORY,BO,TEST"></file>
+		-->
+		<!-- note：			为注释，会在生成的每个文件生成注释TITLE。 -->
+		<!-- fileType：		生成的文件，一般不用进行修改。******不用修改******"-->
+		<!-- name：			要创建的文件名称，生成nameWS,nameFactory,nameBO,nameTest，以及配置文件。	 -->
+		<!-- ******如不需要生成文件请删除或者注释所有<file></file> ******-->
+		<!--
+			<file name="PublicValueCode" note="值集公用" fileType="WS,FACTORY,BO,TEST"></file>
+		-->
+	</business>
+	<!--
+		生成DAO，功能尚未开启 <daos> <dao>User</dao> <dao>UserDepart</dao>
+		<dao>UserPostion</dao> </daos>
+	-->
+
+	<!--在每个流程中生成方法，包括接口和实现类 -->
+	<methods>
+		<!--
+			示例： <method tofile="UserDepart" name="modifyUserDepart"
+			note="修改,新增部门" fileType="WS,FACTORY,BO,TEST">
+			<paramterType>UserDepartModifyRequestDTO</paramterType>
+			<paramterName>requestDTO</paramterName>
+			<returnType>UserDepartModifyResponseDTO</returnType>
+			<returnName>responseDTO</returnName> </method>
+		-->
+		<!-- tofile:			方法要生成到哪个文件，对应上面<file></file>配置的name				-->
+		<!-- fileType:			生成的文件，								****** 不用修改 ******	-->
+		<!-- name:				方法名称									-->
+		<!-- paramterType/ReturnType:		参数类型/返回类型				-->
+		<!-- paramterName/ReturnName:		参数名称/返回名称（不用修改）	****** 不用修改 ******	-->
+		<!-- ******如不需要生成方法请删除或者注释所有<method></method> ******-->
+		<method tofile="DeliveryPlan" name="planMonthExport" note="发货月计划导出" fileType="WS">
+			<paramterType>PlanMonthExportRequestDTO</paramterType>
+			<paramterName>requestDTO</paramterName>
+			<returnType>PlanMonthExportResponseDTO</returnType>
+			<returnName>responseDTO</returnName>
+		</method>
+		<method tofile="PlanMonth" name="planMonthExport" note="发货月计划导出" fileType="FACTORY,BO,TEST">
+			<paramterType>PlanMonthExportRequestDTO</paramterType>
+			<paramterName>requestDTO</paramterName>
+			<returnType>PlanMonthExportResponseDTO</returnType>
+			<returnName>responseDTO</returnName>
+		</method>
+	</methods>
+	<!--生成DTO -->
+	<dtos>
+		<!--
+			示例： <dto name="UserDepartModifyRequestDTO" note="修改部门请求DTO">
+			<field><name>userDepartID</name><type>int</type><note>部门ID</note></field>
+			</dto>
+		-->
+		<!-- name:	DTO的类名称		-->
+		<!-- note:	DTO类的注释		-->
+		<!-- field name:字段名称	-->
+		<!--
+			field type:字段类型如果需要使用泛型，使用&lt;替代"<"，&gt;替代">" 如：List&lt;Integer&gt;
+		-->
+		<!-- field note:字段的注释	-->
+		<!-- ******如不需要生成DTO请删除或者注释所有<dto></dto> *****-->
+ 		<dto name="PlanMonthExportRequestDTO" note="发货月计划导出请求DTO"></dto>
+ 		<dto name="PlanMonthExportResponseDTO" note="发货月计划导出返回DTO"></dto>
+
+	</dtos>
+</root>
